@@ -11,7 +11,8 @@
             "request": "launch",
             "mode": "auto",
             "args": [
-                "-s","1111"
+                "-s","http://crayfish.eu.org:4499/report",
+                "-n","test"
             ],
             "program": "${fileDirname}"
         }

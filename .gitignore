@@ -23,6 +23,7 @@ go.work
 # Go build file
 build
 
+propin*
 
 # Backup file
 tracking.json
