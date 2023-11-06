@@ -21,8 +21,8 @@ func main() {
 	if token == "" || chatID == "" {
 		panic("token和chatID不可为空")
 	}
-	tgApi = fmt.Sprintf("https://api.telegram.org/bot%s/sendMessage?chat_id=%s&text=", token, chatID)
+	tgApi = fmt.Sprintf("https://api.telegram.org/bot%s/sendMessage", token)
 	pin.NewPin(120)
-	core.Start(tgApi)
+	core.Start(tgApi, chatID)
 }
 

@@ -3,6 +3,7 @@ package core
 import (
 	"fmt"
 	"net/http"
+	"net/url"
 
 	"github.com/gin-gonic/gin"
 	"github.com/uerax/propin/server/pin"
@@ -18,7 +19,10 @@ func Report(ctx *gin.Context) {
 
 func Info(ctx *gin.Context) {
 	msg := pin.Info()
-	go http.Get(tgApi+msg)
+	data := url.Values{}
+	data.Add("chat_id", chatId)
+	data.Add("text", msg)
+	go http.PostForm(tgApi, data)
 	ctx.JSON(200, gin.H{
 		"message": "已发送到Telegram",
 	})
@@ -27,7 +31,11 @@ func Info(ctx *gin.Context) {
 func ToTg(ctx *gin.Context) {
 	msg := pin.Out()
 	fmt.Println(msg)
-	go http.Get(tgApi+msg)
+	data := url.Values{}
+	data.Add("chat_id", chatId)
+	data.Add("text", msg)
+	go http.PostForm(tgApi, data)
+	
 	ctx.JSON(200, gin.H{
 		"message": "已发送到Telegram",
 	})

@@ -7,7 +7,7 @@ func Out() string {
 }
 
 func Info() string {
-	b, _ := json.Marshal(pin)
+	b, _ := json.Marshal(pin.dirty)
 	return string(b)
 }
 
