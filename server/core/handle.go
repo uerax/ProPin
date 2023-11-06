@@ -24,7 +24,7 @@ func Info(ctx *gin.Context) {
 	data.Add("text", msg)
 	go http.PostForm(tgApi, data)
 	ctx.JSON(200, gin.H{
-		"message": "已发送到Telegram",
+		"message": msg,
 	})
 }
 
@@ -37,6 +37,6 @@ func ToTg(ctx *gin.Context) {
 	go http.PostForm(tgApi, data)
 	
 	ctx.JSON(200, gin.H{
-		"message": "已发送到Telegram",
+		"message": msg,
 	})
 }
